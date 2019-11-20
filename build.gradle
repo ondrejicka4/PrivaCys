@@ -9,13 +9,26 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
+    google()
     mavenCentral()
+
 }
 
 dependencies {
+// https://mvnrepository.com/artifact/com.android.tools.lint/lint-api
+    //compile group: 'com.android.tools.lint', name: 'lint-api', version: '25.3.0'
+// https://mvnrepository.com/artifact/com.android.tools.lint/lint-api
+  //  compile group: 'com.android.tools.lint', name: 'lint-api', version: '26.5.2'
+
+     compile 'com.android.tools.lint:lint-api:26.5.2'
+   // compile 'com.android.tools.lint:lint-checks:25.3.0'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
-
+jar {
+    manifest {
+        attributes("Lint-Registry": "CustomLintTool.IssueRegistry")
+    }
+}
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version '2019.2.2'
