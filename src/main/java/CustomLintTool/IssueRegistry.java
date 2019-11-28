@@ -3,9 +3,14 @@ package CustomLintTool;
 import com.android.tools.lint.detector.api.*;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 public class IssueRegistry extends com.android.tools.lint.client.api.IssueRegistry {
+
+    public IssueRegistry(){
+
+    }
 
     @Override
     public List<Issue> getIssues() {
@@ -20,5 +25,7 @@ public class IssueRegistry extends com.android.tools.lint.client.api.IssueRegist
             //add explanation
             "None, yet",
             Category.CORRECTNESS, 6, Severity.WARNING,
-            new Implementation(IssueDetector.class, Scope.JAVA_FILE);
+            new Implementation(IssueDetector.class, EnumSet.of(Scope.ALL_JAVA_FILES)));
+
+
 }

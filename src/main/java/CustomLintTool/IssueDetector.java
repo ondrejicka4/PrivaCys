@@ -17,7 +17,7 @@ import org.jetbrains.uast.*;
 
 import java.util.List;
 
-public class IssueDetector implements Detector.UastScanner {
+public class IssueDetector extends Detector implements Detector.UastScanner {
 
     public IssueDetector(){
 
